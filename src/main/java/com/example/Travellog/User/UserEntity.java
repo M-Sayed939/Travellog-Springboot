@@ -1,5 +1,7 @@
 package com.example.Travellog.User;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,10 +9,13 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.example.Travellog.Destination.DestinationEntity;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -112,5 +117,9 @@ public class UserEntity implements UserDetails {
     public String getPhone() {
         return phone;
     }
+
+   @JsonManagedReference
+   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<DestinationEntity> destinations;
 
 }

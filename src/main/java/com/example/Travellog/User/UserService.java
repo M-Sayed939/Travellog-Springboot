@@ -1,5 +1,6 @@
 package com.example.Travellog.User;
 
+import com.example.Travellog.Destination.DestinationEntity;
 import com.example.Travellog.Security.token.AccessToken;
 import com.example.Travellog.Security.token.AccessTokenService;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -69,4 +72,7 @@ public class UserService implements UserDetailsService {
     }
 
 
+    public List<DestinationEntity> getUserDestinations(Long userId) {
+        return userRepository.findById(userId).map(UserEntity::getDestinations).orElse(null);
+    }
 }
