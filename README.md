@@ -17,6 +17,24 @@ The Travel Log App is a Spring Boot-based web application designed for managing 
 - **Database**: PostgreSQL
 - **Java Version**: 17
 - **Build Tool**: Maven
+  
+## Design Patterns Used
+
+### 1. **Service Layer Pattern**
+
+The Service Layer pattern is used to encapsulate the business logic of the application. This pattern helps in maintaining separation of concerns and promotes code reusability and testability.
+
+- **Service:** Contains business logic and interacts with repositories to perform CRUD operations.
+- **Controller:** Handles HTTP requests and responses.
+- **Repository:** Acts as a data access layer, abstracting the interaction with the database.
+
+### 2. **Repository Pattern**
+
+The Repository pattern is used to abstract the data layer, making the code cleaner and easier to test. It also helps in centralizing the data access logic.
+
+### 3. **Dependency Injection**
+
+Spring's Dependency Injection is used to manage dependencies, making the code more modular and easier to test.
 
 ## Getting Started
 
